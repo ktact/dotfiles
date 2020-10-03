@@ -91,3 +91,8 @@ let &cpo = s:cpo_save
 unlet s:cpo_save
 
 " ref: http://hachibeechan.hateblo.jp/entry/vim-customize-for-python
+
+nnoremap ; :
+nnoremap : ;
+vnoremap : :
+vnoremap : ;
