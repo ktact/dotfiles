@@ -1,11 +1,12 @@
 #!/bin/bash
 
-DOT_FILES=(.vimrc .tmux.conf)
-
-for file in ${DOT_FILES[@]}
+for file in .??*
 do
-    ln -sfn $HOME/dotfiles/$file $HOME/$file
+  [ "$file" = ".git" ] && continue
+  [ "$file" = ".gitignore" ] && continue
+
+  ln -sfnv $HOME/dotfiles/$file $HOME/$file
 done
 
-ln -sfn $HOME/dotfiles/.vim/colors $HOME/.vim/colors
-ln -sfn $HOME/dotfiles/.vim/indent $HOME/.vim/indent
+ln -sfnv $HOME/dotfiles/.vim/colors $HOME/.vim/colors
+ln -sfnv $HOME/dotfiles/.vim/indent $HOME/.vim/indent
