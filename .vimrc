@@ -14,37 +14,27 @@ end
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 """"""""""""""""""""""""""""""""""""""""
-" NeoBundle
+" vim-plug
 """"""""""""""""""""""""""""""""""""""""
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+call plug#begin()
 " Ruby等でendを自動入力
-NeoBundle 'tpope/vim-endwise'
+Plug 'tpope/vim-endwise'
 " インデントに色を付けて見やすくする
-NeoBundle 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides'
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_enable_on_vim_startup = 1
 " fzf連携
-NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-NeoBundle 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" for JSX
+Plug 'maxmellon/vim-jsx-pretty'
 " for TypeScript
-NeoBundle 'Shougo/vimproc.vim', {
-            \ 'build' : {
-            \     'windows' : 'tools\\update-dll-mingw',
-            \     'cygwin' : 'make -f make_cygwin.mak',
-            \     'mac' : 'make -f make_mac.mak',
-            \     'linux' : 'make',
-            \     'unix' : 'gmake',
-            \    },
-            \ }
-
-NeoBundle 'Quramy/tsuquyomi'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Quramy/tsuquyomi'
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
-call neobundle#end()
-
-NeoBundleCheck
+call plug#end()
 
 syntax enable
 colorscheme molokai
@@ -112,32 +102,6 @@ set backspace=eol,indent,start
 set wildmenu
 set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so,*.dll
-let g:python_highlight_all = 1
-
-if version < 600
-    syntax clear
-elseif exists('b:current_after_syntax')
-    finish
-endif
-
-" We need nocompatible mode in order to continue lines with backslashes.
-" Original setting will be restored.
-let s:cpo_save = &cpo
-set cpo&vim
-
-syn match pythonOperator "\(+\|=\|-\|\^\|\*\)"
-syn match pythonDelimiter "\(,\|\.\|:\)"
-syn keyword pythonSpecialWord self
-
-hi link pythonSpecialWord    Special
-hi link pythonDelimiter      Special
-
-let b:current_after_syntax = 'python'
-
-let &cpo = s:cpo_save
-unlet s:cpo_save
-
-" ref: http://hachibeechan.hateblo.jp/entry/vim-customize-for-python
 
 nnoremap ; :
 nnoremap : ;
