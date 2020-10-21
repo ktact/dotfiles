@@ -6,12 +6,12 @@ if has('vim_starting')
     set nocompatible
   endif
 
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  " vim-plugがまだインストールされていなければインストールする
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
 end
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
 
 """"""""""""""""""""""""""""""""""""""""
 " vim-plug
