@@ -2,4 +2,6 @@
 
 Run the command below in your terminal
 
-> $ git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim 
+> $ git clone git://github.com/ktact/dotfiles  
+> $ cd dotfiles  
+> $ ./setup.sh  
