@@ -33,6 +33,8 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Quramy/tsuquyomi'
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
+" for Go
+Plug 'fatih/vim-go'
 
 call plug#end()
 
