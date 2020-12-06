@@ -35,6 +35,8 @@ let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 " for Go
 Plug 'fatih/vim-go'
+" for Scala
+Plug 'derekwyatt/vim-scala'
 
 call plug#end()
 
