@@ -47,6 +47,15 @@ set t_Co=256
 set fileformats=unix
 
 """"""""""""""""""""""""""""""""""""""""
+" autocmd
+"""""""""""""""""""""""""""""""""""""""
+" Cファイルが保存されるたびにタグを更新する
+augroup ctags
+  autocmd!
+  autocmd BufWritePost *.c,*.h silent! !ctags -R . &
+augroup END
+
+""""""""""""""""""""""""""""""""""""""""
 " インデント
 """"""""""""""""""""""""""""""""""""""""
 set autoindent
@@ -69,7 +78,7 @@ if has("autocmd")
   " ファイルタイプに合わせたインデントを利用する
   filetype indent on
   "sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtabの略
-  autocmd FileType c           setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
   autocmd FileType html        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType js          setlocal sw=2 sts=2 ts=2 et
