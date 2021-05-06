@@ -37,6 +37,8 @@ let g:syntastic_typescript_checkers = ['tsuquyomi']
 Plug 'fatih/vim-go'
 " for Scala
 Plug 'derekwyatt/vim-scala'
+" for Markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
 
@@ -78,7 +80,7 @@ if has("autocmd")
   " ファイルタイプに合わせたインデントを利用する
   filetype indent on
   "sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtabの略
-  autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType c           setlocal sw=2 sts=2 ts=2 et
   autocmd FileType asm         setlocal sw=4 sts=4 ts=4 et
   autocmd FileType html        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 et
@@ -86,9 +88,9 @@ if has("autocmd")
   autocmd FileType javascript  setlocal sw=2 sts=2 ts=2 et
   autocmd FileType python      setlocal sw=4 sts=4 ts=4 et
   autocmd FileType json        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType css         setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType scss        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType sass        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType css         setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType scss        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType sass        setlocal sw=2 sts=2 ts=2 et
 endif
 
 set ignorecase
