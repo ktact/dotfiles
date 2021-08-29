@@ -26,6 +26,12 @@ let g:indent_guides_enable_on_vim_startup = 1
 " fzf連携
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" Language Servers
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+" Auto-complete
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 " for JSX
 Plug 'maxmellon/vim-jsx-pretty'
 " for TypeScript
