@@ -125,7 +125,21 @@ set wildmenu
 set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so,*.dll
 
+" for US keyboard
 nnoremap ; :
 nnoremap : ;
 vnoremap : :
 vnoremap : ;
+" for vim-lsp
+nnoremap <silent> ]e  :LspNextError<CR>
+nnoremap <silent> [e  :LspPreviousError<CR>
+
+""""""""""""""""""""""""""""""""""""""""
+" asyncomplete.vim
+""""""""""""""""""""""""""""""""""""""""
+"let g:asyncomplete_auto_popup = 1
+"
+"inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+"
+"let g:lsp_settings = { 'typescript-language-server': { 'cmd': [&shell, &shellcmdflag, 'typescript-language-server --stdio']}}
+
