@@ -125,6 +125,9 @@ set wildmenu
 set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so,*.dll
 
+""""""""""""""""""""""""""""""""""""""""
+" ショートカットキー
+""""""""""""""""""""""""""""""""""""""""
 " for US keyboard
 nnoremap ; :
 nnoremap : ;
@@ -133,13 +136,15 @@ vnoremap : ;
 " for vim-lsp
 nnoremap <silent> ]e  :LspNextError<CR>
 nnoremap <silent> [e  :LspPreviousError<CR>
+nnoremap <silent> ]w  :LspNextWarning<CR>
+nnoremap <silent> [w  :LspPreviousWarning<CR>
 
 """"""""""""""""""""""""""""""""""""""""
 " asyncomplete.vim
 """"""""""""""""""""""""""""""""""""""""
-"let g:asyncomplete_auto_popup = 1
+let g:asyncomplete_auto_popup = 1
 "
-"inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 "
-"let g:lsp_settings = { 'typescript-language-server': { 'cmd': [&shell, &shellcmdflag, 'typescript-language-server --stdio']}}
+let g:lsp_settings = { 'typescript-language-server': { 'cmd': [&shell, &shellcmdflag, 'typescript-language-server --stdio']}}
 
