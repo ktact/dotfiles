@@ -17,6 +17,8 @@ end
 " vim-plug
 """"""""""""""""""""""""""""""""""""""""
 call plug#begin()
+" Denops
+Plug 'vim-denops/denops.vim'
 " Ruby等でendを自動入力
 Plug 'tpope/vim-endwise'
 " インデントに色を付けて見やすくする
@@ -148,3 +150,7 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 "
 let g:lsp_settings = { 'typescript-language-server': { 'cmd': [&shell, &shellcmdflag, 'typescript-language-server --stdio']}}
 
+""""""""""""""""""""""""""""""""""""""""
+" プラグインの検証用のディレクトリを設定
+""""""""""""""""""""""""""""""""""""""""
+set runtimepath^=~/vim-plugin-development
