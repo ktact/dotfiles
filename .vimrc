@@ -59,11 +59,7 @@ set fileformats=unix
 """"""""""""""""""""""""""""""""""""""""
 " autocmd
 """""""""""""""""""""""""""""""""""""""
-" Cファイルが保存されるたびにタグを更新する
-augroup ctags
-  autocmd!
-  autocmd BufWritePost *.c,*.h silent! !ctags -R . &
-augroup END
+" nothing
 
 """"""""""""""""""""""""""""""""""""""""
 " インデント
@@ -140,6 +136,7 @@ nnoremap <silent> ]e  :LspNextError<CR>
 nnoremap <silent> [e  :LspPreviousError<CR>
 nnoremap <silent> ]w  :LspNextWarning<CR>
 nnoremap <silent> [w  :LspPreviousWarning<CR>
+nnoremap <silent> <C-]> :LspDefinition<CR> " Ctrl-Oで元のカーソル位置に戻ることができる（Ctrl-Iで再度定義に移動することができる）
 
 """"""""""""""""""""""""""""""""""""""""
 " asyncomplete.vim
