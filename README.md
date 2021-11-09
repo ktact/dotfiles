@@ -15,3 +15,5 @@ Run the command below in your terminal
 |`[+w`|`LspPreviousWarning`|
 |`]+e`|`LspNextError`|
 |`[+e`|`LspPreviousError`|
+
+see [here](https://github.com/prabirshrestha/vim-lsp#supported-commands) for [vim-lsp](https://github.com/prabirshrestha/vim-lsp) supported commands.
