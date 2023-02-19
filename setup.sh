@@ -31,3 +31,6 @@ if has "npm"; then
 
   echo "$(tput setaf 2)Install npm packages complete. ✔︎$(tput sgr0)"
 fi
+
+# Install deno
+curl -fsSL https://deno.land/x/install/install.sh | sh
