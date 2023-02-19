@@ -21,6 +21,8 @@ has() {
 
 link_files
 
+# Add a settings to .bashrc
+echo "alias docker-purge='docker stop $(docker ps -q -a) && docker container prune && docker rmi $(docker images -q) -f'" >> ~/.bashrc
 echo "source ~/.git-prompt.sh" >> ~/.bashrc
 echo "export PS1='\[\033[1;32m\]\u\[\033[00m\]:\[\033[1;34m\]\w\[\033[1;31m\]$(__git_ps1)\[\033[00m\] \$ '" >> ~/.bash_profile
 
