@@ -1,5 +1,9 @@
 #!/bin/bash
 
+function success() {
+  echo "$(tput setaf 2)${@} ✔︎$(tput sgr0)"
+}
+
 link_files() {
   for file in .??*
   do
@@ -12,7 +16,7 @@ link_files() {
   ln -sfnv $HOME/dotfiles/.vim/colors $HOME/.vim/colors
   ln -sfnv $HOME/dotfiles/.vim/indent $HOME/.vim/indent
 
-  echo "$(tput setaf 2)Deploy dotfiles complete!. ✔︎$(tput sgr0)"
+  success "Deploy dotfiles complete!."
 }
 
 has() {
