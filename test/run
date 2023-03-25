@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cp -f ../setup.sh .
+cp -f ../utils.sh .
+cp -fr ../.tmux .
+cp -f ../.tmux.conf .
+cp -f ../.vimrc .
+cp -rf ../.vim .
+cp -f ../.git-prompt.sh .
+
+docker build -t dotfiles_test .
+docker run -it dotfiles_test
