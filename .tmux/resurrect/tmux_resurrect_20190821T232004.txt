@@ -1,0 +1,7 @@
+pane	0	0	:bash	1	:*	0	:/home/tact	1	bash	:
+pane	0	0	:bash	1	:*	1	:/home/tact	0	bash	:
+pane	1	0	:bash	1	:*	0	:/home/tact	0	bash	:
+pane	1	0	:bash	1	:*	1	:/home/tact	1	bash	:
+window	0	0	1	:*	f2bd,204x54,0,0{102x54,0,0,0,101x54,103,0,1}
+window	1	0	1	:*	f2c0,204x54,0,0{102x54,0,0,2,101x54,103,0,3}
+state	1	
