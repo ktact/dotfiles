@@ -21,26 +21,28 @@ link_files || die "Failed to deploy dotfiles"
 # Install packages
 
 function install_docker() {
-  # Setup the repository
-  ## 1. Update the apt package index and install packages to allow apt to use a repository over HTTPS:
-  sudo apt-get update > /dev/null
-  sudo apt-get install \
-    ca-certificates \
-    curl \
-    gnupg > /dev/null
-  ## 2. Add Docker's official GPG key:
-  sudo mkdir -m 0755 -p /etc/apt/keyrings
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg > /dev/null
-  ## 3. Set up the repository:
-  echo \
-    "deb [arch=\"$(dpkg --print-architecture)\" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-    \"$(. /etc/os-release && echo \"$VERSION_CODENAME\")\" stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  # Install Docker Engine
-  sudo apt-get update > /dev/null
-  sudo DEBIAN_FRONTEND=noninteractive apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin > /dev/null
+  if ! has "docker"; then
+    # Setup the repository
+    ## 1. Update the apt package index and install packages to allow apt to use a repository over HTTPS:
+    sudo apt-get update > /dev/null
+    sudo apt-get install \
+      ca-certificates \
+      curl \
+      gnupg > /dev/null
+    ## 2. Add Docker's official GPG key:
+    sudo mkdir -m 0755 -p /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg > /dev/null
+    ## 3. Set up the repository:
+    echo \
+      "deb [arch=\"$(dpkg --print-architecture)\" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+      \"$(. /etc/os-release && echo \"$VERSION_CODENAME\")\" stable" | \
+      sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    # Install Docker Engine
+    sudo apt-get update > /dev/null
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin > /dev/null
 
-  success "Docker installation is complete"
+    success "Docker installation is complete"
+  fi
 
   return 0
 }
@@ -48,11 +50,13 @@ function install_docker() {
 install_docker || die "Failed to install docker"
 
 function install_fzf() {
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf > /dev/null
-  yes | ~/.fzf/install > /dev/null
+  if ! has "fzf"; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf > /dev/null
+    yes | ~/.fzf/install > /dev/null
   echo '[ -f ~/.fzf.bash ] && source ~/.fzf.bash' >> $HOME/.bashrc
 
-  success "fzf instllation is complete"
+    success "fzf instllation is complete"
+  fi
 
   return 0
 }
@@ -60,13 +64,15 @@ function install_fzf() {
 install_fzf || die "Faild to install fzf"
 
 function install_deno() {
-  curl -fsSL https://deno.land/x/install/install.sh | sh
-  cat << "EOF" >> $HOME/.bashrc
+  if ! has "deno"; then
+    curl -fsSL https://deno.land/x/install/install.sh | sh
+    cat << "EOF" >> $HOME/.bashrc
 export DENO_INSTALL=$HOME/.deno
 export PATH=$DENO_INSTALL/bin:$PATH
 EOF
 
-  success "Deno installation is complete"
+    success "Deno installation is complete"
+  fi
 
   return 0
 }
