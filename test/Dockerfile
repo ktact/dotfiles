@@ -20,6 +20,7 @@ USER ${username}
 
 RUN mkdir -p /home/${username}/dotfiles/.vim && mkdir /home/${username}/dotfiles/.tmux
 COPY setup.sh /home/${username}/dotfiles
+COPY packages.sh /home/${username}/dotfiles
 COPY utils.sh /home/${username}/dotfiles
 COPY .tmux.conf /home/${username}/dotfiles
 COPY .tmux /home/${username}/dotfiles/.tmux

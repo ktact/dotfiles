@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cp -f ../setup.sh .
+cp -f ../packages.sh .
 cp -f ../utils.sh .
 cp -fr ../.tmux .
 cp -f ../.tmux.conf .
