@@ -31,6 +31,9 @@ Plug 'junegunn/fzf.vim'
 " Language Servers
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
+Plug 'mattn/vim-lsp-icons'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 " Auto-complete
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
@@ -41,8 +44,6 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Quramy/tsuquyomi'
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
-" for Go
-Plug 'fatih/vim-go'
 " for Scala
 Plug 'derekwyatt/vim-scala'
 " for Markdown
@@ -95,6 +96,7 @@ if has("autocmd")
   autocmd FileType css         setlocal sw=2 sts=2 ts=2 et
   autocmd FileType scss        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType sass        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType go          setlocal sw=4 sts=4 ts=4 noet
 endif
 
 set ignorecase
