@@ -23,6 +23,9 @@ function install_docker() {
     # Install Docker Engine
     sudo apt-get update > /dev/null
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin > /dev/null
+    # Create the docker group and add my user
+    sudo groupadd docker
+    sudo gpasswd -a $USER docker
     # Start Docker
     sudo systemctl enable docker
     sudo systemctl start docker
