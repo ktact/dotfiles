@@ -22,6 +22,7 @@ function link_files() {
 link_files || die "Failed to deploy dotfiles"
 
 # Install packages
+sudo apt install -y vim tmux
 install_docker       || die "Failed to install docker"
 install_fzf          || die "Faild to install fzf"
 install_deno         || die "Failed to install deno"
